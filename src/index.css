@@ -9,7 +9,10 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
-
+iframe
+{
+    display: none;
+}
 .container {
   max-width: 500px;
   margin: 30px auto;
