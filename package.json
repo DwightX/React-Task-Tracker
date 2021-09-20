@@ -1,6 +1,6 @@
 {
   "homepage": "https://dwightx.github.io",
-    "name": "react-task-tracker",
+  "name": "react-task-tracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
