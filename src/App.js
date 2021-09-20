@@ -92,7 +92,7 @@ function App() {
       <Route path='/' exact render={() => (
         <>
         {showAddTask && <AddTask onAdd={addTasks}/>}
-        {tasks.length > 1 ? (
+        {tasks.length > 0 ? (
           <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
         ) : (
           "No task to show"
