@@ -89,10 +89,10 @@ function App() {
 
     <div className="container">
       <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
-      <Route path='/' exact render={() => (
+      <Route path='/home' exact render={() => (
         <>
         {showAddTask && <AddTask onAdd={addTasks}/>}
-        {tasks.length > 0 ? (
+        {tasks.length > 1 ? (
           <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
         ) : (
           "No task to show"
