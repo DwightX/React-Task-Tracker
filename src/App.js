@@ -89,7 +89,7 @@ function App() {
 
     <div className="container">
       <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
-      <Route path='/home' exact render={() => (
+      <Route path='/' exact render={() => (
         <>
         {showAddTask && <AddTask onAdd={addTasks}/>}
         {tasks.length > 1 ? (
