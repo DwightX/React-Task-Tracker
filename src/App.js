@@ -23,14 +23,14 @@ function App() {
 
   // Fetch Task
   const fetchTasks = async () => {
-    const res = await fetch('https://dc-react-task.herokuapp.com/tasks')
+    const res = await fetch('http://localhost:5000/tasks')
     const data = await res.json()
     
     return data
   }
 
   const fetchTask = async (id) => {
-    const res = await fetch(`https://dc-react-task.herokuapp.com/tasks/${id}`)
+    const res = await fetch(`http://localhost:5000/tasks/${id}`)
     const data = await res.json()
     
     return data
@@ -40,7 +40,7 @@ function App() {
 
   // Add Task
   const addTasks = async (task) => {
-    const res = await fetch(`https://dc-react-task.herokuapp.com/tasks`,{
+    const res = await fetch(`http://localhost:5000/tasks`,{
       method:'POST',
       headers:{
           'Content-type':'application/json'
@@ -56,7 +56,7 @@ function App() {
   }
   //Delete task
   const deleteTask = async (id) => {
-    await fetch(`https://dc-react-task.herokuapp.com/tasks/${id}`, {
+    await fetch(`http://localhost:5000/tasks/${id}`, {
       method:'DELETE',
     })
     setTasks(tasks.filter((task) => task.id !== id));
@@ -68,7 +68,7 @@ function App() {
     const taskToToggle = await fetchTask(id)
     const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder }
 
-    const res = await fetch(`https://dc-react-task.herokuapp.com/tasks/${id}`, {
+    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
       method: 'PUT',
       headers: {
         'Content-type': 'application/json', 
