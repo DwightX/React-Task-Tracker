@@ -23,7 +23,7 @@ function App() {
 
   // Fetch Task
   const fetchTasks = async () => {
-    const res = await fetch('http://https://my-json-server-data.herokuapp.com/tasks')
+    const res = await fetch('https://my-json-server-data.herokuapp.com/tasks')
     const data = await res.json()
     
     return data
