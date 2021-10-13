@@ -1,8 +1,19 @@
 import {FaTimes} from 'react-icons/fa'
+import React, { useRef } from 'react';
 
-const Task = ({ task, onDelete, onToggle}) => {
+import Draggable from 'react-draggable'
+
+const Task = ({  task, onDelete, onToggle }) => {
+    const ChipStyles = useRef({
+        position: 'absolute',
+        top: Math.random()*620,
+        left: Math.random()*900,
+        right: Math.random()*130,
+        transform: `translate(706px, 219px)`
+    });
     return(
-        <div className={`task ${task.reminder ? 'reminder' : ''}`} onDoubleClick={() => onToggle(task.id)} >
+        <Draggable > 
+        <div style={ChipStyles.current} className='noteBox' onDoubleClick={() => onToggle(task.id)} >
         <h3> {task.text} {' '}
         <FaTimes 
          style={{color:'red', cursor:'pointer'}}
@@ -11,6 +22,7 @@ const Task = ({ task, onDelete, onToggle}) => {
         </h3>
         <p>{task.day}</p>
         </div>
+        </Draggable>
     )
 }
 export default Task

@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import Draggable from 'react-draggable';
 
 
 const AddTask = ({onAdd}) => {
@@ -6,6 +7,7 @@ const AddTask = ({onAdd}) => {
      const[text, setText] = useState('')
      const[day, setDay] = useState('')
      const[reminder, setReminder] = useState(false)
+     const[time, getTime] = useState();
 
      const onSubmit = (e) => {
          e.preventDefault()
@@ -13,40 +15,36 @@ const AddTask = ({onAdd}) => {
              alert('Please add a task')
              return
          }
-         onAdd({ text, day, reminder })
+         onAdd({ text, day, reminder, time })
 
          setText('')
          setDay('')
          setReminder(false)
+         getTime(Date().toLocaleString());
      }
 
   return (
+    <Draggable>
     <form className="add-form" onSubmit={onSubmit}>
       <div className="form-control">
-        <label>Task</label>
+        <label>Tell the class your name</label>
         <input type="text" 
-        placeholder="Add Task" 
+        placeholder="'Mr. Anderson'" 
         value={text} 
         onChange={(e) => setText(e.target.value)}
         />
       </div>
       <div className="form-control">
-        <label>Day & Time</label>
-        <input type="text" placeholder="Add Day & Time" 
+        <label></label>
+        <input type="text" placeholder="What do you have to say to the kids?" 
         value={day} 
         onChange={(e) => setDay(e.target.value)}/>
       </div>
       <div className="form-control form-control-check">
-        <label>Set Reminder</label>
-        <input 
-        type="checkbox" 
-        checked={reminder}
-        value={reminder} 
-        onChange={(e) => setReminder(e.currentTarget.checked)}
-        />
       </div>
-      <input type="submit" value="Save Task" className="btn btn-block" />
+      <input onClick={ () =>this.getData() } type="submit" value="Save Task" className="btn btn-block" />
     </form>
+    </Draggable>
   );
 };
 

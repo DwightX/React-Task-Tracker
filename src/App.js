@@ -7,10 +7,15 @@ import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 import About from "./components/About"
 
+
+
 function App() {
+
+
+  
+  
   const [showAddTask, setShowAddTask] = useState(false)
   const [tasks, setTasks] = useState([])
-
 
   useEffect(() => {
     const getTasks = async () => {
@@ -35,9 +40,6 @@ function App() {
     
     return data
   }
-
-  
-
   // Add Task
   const addTasks = async (task) => {
     const res = await fetch(`https://my-json-server-data.herokuapp.com/tasks`,{
@@ -84,18 +86,28 @@ function App() {
       )
     )
   }
+   
+
   return (
     <Router>
 
-    <div className="container">
+    <div className="container-fluid"   
+    style={{
+      backgroundImage: `url(${require('./images/1991maxBlue.jpg').default})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      height: '100vh',
+      width: '100vw'
+    }}>
       <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
       <Route path='/' exact render={() => (
         <>
-        {showAddTask && <AddTask onAdd={addTasks}/>}
+        {showAddTask && <div className="addBox" ><AddTask onAdd={addTasks}/></div>}
         {tasks.length > 0 ? (
           <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
         ) : (
-          "No task to show"
+          "ss1.21_hellofriend.psd"
         )}
         </>
       )} />

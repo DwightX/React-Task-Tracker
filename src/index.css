@@ -13,6 +13,23 @@ iframe
 {
     display: none;
 }
+.bottomRow{
+  display: flex;
+    position: fixed;
+    flex-direction: column;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+}
+.addBox{
+  width: 500px;
+  max-width: 500px;
+}
+.noteBox{
+  max-width: 350px;
+  border: 1px solid red;
+  transform: rotate(-3deg) skewX(-20deg);
+}
 .container {
   max-width: 500px;
   margin: 30px auto;
